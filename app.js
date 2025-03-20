@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
+const shirtCategoryRoutes = require('./routes/shirtCategoryRoutes');
+const subCategoryRoutes = require('./routes/subCategoryRoutes');
 
 dotenv.config();
 
@@ -20,6 +22,8 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 // Mount routes
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/categories', shirtCategoryRoutes);
+app.use('/api/v1/subcategories', subCategoryRoutes);
 
 const PORT = process.env.PORT || 5000;
 
