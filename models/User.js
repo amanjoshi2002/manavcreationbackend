@@ -19,6 +19,11 @@ const userSchema = new mongoose.Schema({
     minlength: 6,
     select: false
   },
+  role: {
+    type: String,
+    enum: ['regular', 'reseller', 'special'],
+    default: 'regular'
+  },
   resetPasswordToken: String,
   resetPasswordExpire: Date,
   createdAt: {
